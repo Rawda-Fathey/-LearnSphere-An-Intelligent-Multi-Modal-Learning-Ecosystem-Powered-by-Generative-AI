@@ -1,0 +1,403 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="relative overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Gradient Orbs -->
+            <div class="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-primary-400/30 to-violet-400/30 rounded-full blur-3xl animate-blob"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full blur-3xl animate-blob" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-primary-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            
+            <!-- Grid Pattern -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_40%,transparent_100%)]"></div>
+            
+            <!-- Floating Icons -->
+            <div class="absolute top-32 right-[15%] text-6xl animate-float opacity-20 dark:opacity-10">📚</div>
+            <div class="absolute bottom-32 left-[15%] text-5xl animate-float-delayed opacity-20 dark:opacity-10">🎯</div>
+            <div class="absolute top-1/2 right-[10%] text-4xl animate-bounce-slow opacity-20 dark:opacity-10">💡</div>
+            <div class="absolute top-40 left-[20%] text-5xl animate-float opacity-20 dark:opacity-10">🚀</div>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto text-center">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full ultra-glass mb-8 animate-slide-down border border-primary-200/50 dark:border-primary-500/20">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+                </span>
+                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">AI-Powered Education Platform</span>
+                <span class="px-2 py-0.5 rounded-full bg-primary-500/10 text-xs font-semibold text-primary-600 dark:text-primary-400">NEW</span>
+            </div>
+            
+            <!-- Main Heading -->
+            <h1 class="text-5xl sm:text-6xl lg:text-8xl font-display font-black tracking-tight mb-6 animate-slide-up">
+                <span class="block text-slate-800 dark:text-white">Transform Learning</span>
+                <span class="block gradient-text mt-2">With AI Power</span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-xl sm:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-10 animate-slide-up leading-relaxed" style="animation-delay: 0.1s">
+                Create <span class="font-semibold text-primary-600 dark:text-primary-400">interactive quizzes</span>, 
+                stunning <span class="font-semibold text-violet-600 dark:text-violet-400">presentations</span>, 
+                and engaging <span class="font-semibold text-pink-600 dark:text-pink-400">video explanations</span> in seconds using artificial intelligence.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up" style="animation-delay: 0.2s">
+                <a href="/quizes" class="group relative px-8 py-4 rounded-2xl bg-gradient-to-r from-primary-600 to-violet-600 text-white font-semibold text-lg shadow-2xl shadow-primary-500/30 hover:shadow-primary-500/50 transition-all duration-500 hover:scale-105 ripple overflow-hidden">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Get Started Free
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </a>
+                <a href="#features" class="group px-8 py-4 rounded-2xl glass-card font-semibold text-lg text-slate-700 dark:text-slate-200 hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-300 flex items-center gap-2 hover-border">
+                    <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Watch Demo
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-slide-up" style="animation-delay: 0.3s">
+                <div class="perspective-tilt">
+                    <div class="tilt-card glass-card rounded-2xl p-6 text-center hover-glow">
+                        <div class="text-4xl lg:text-5xl font-display font-bold gradient-text-static mb-2 counter">10K+</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-medium">Quizzes Created</div>
+                    </div>
+                </div>
+                <div class="perspective-tilt">
+                    <div class="tilt-card glass-card rounded-2xl p-6 text-center hover-glow">
+                        <div class="text-4xl lg:text-5xl font-display font-bold gradient-text-static mb-2 counter">5K+</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-medium">Presentations</div>
+                    </div>
+                </div>
+                <div class="perspective-tilt">
+                    <div class="tilt-card glass-card rounded-2xl p-6 text-center hover-glow">
+                        <div class="text-4xl lg:text-5xl font-display font-bold gradient-text-static mb-2 counter">2K+</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-medium">Videos Made</div>
+                    </div>
+                </div>
+                <div class="perspective-tilt">
+                    <div class="tilt-card glass-card rounded-2xl p-6 text-center hover-glow">
+                        <div class="text-4xl lg:text-5xl font-display font-bold gradient-text-static mb-2 counter">99%</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 font-medium">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <a href="#features" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 hover:text-primary-500 transition-colors animate-bounce">
+            <span class="text-xs font-medium tracking-wider uppercase">Scroll</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </a>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <span class="inline-block px-4 py-2 rounded-full bg-primary-500/10 text-primary-600 dark:text-primary-400 text-sm font-semibold mb-6">
+                    ✨ Powerful Features
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6">
+                    <span class="text-slate-800 dark:text-white">Everything You Need to </span>
+                    <span class="gradient-text">Create & Educate</span>
+                </h2>
+                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    Three powerful AI tools designed to transform how you create educational content.
+                </p>
+            </div>
+            
+            <!-- Feature Cards -->
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Quiz Generator Card -->
+                <a href="/quizes" class="group relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-violet-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div class="relative glass-card rounded-3xl p-8 lg:p-10 hover-lift hover-border h-full card-stack">
+                        <!-- Icon -->
+                        <div class="relative mb-8">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-violet-500 flex items-center justify-center text-4xl shadow-2xl shadow-primary-500/30 group-hover:shadow-primary-500/50 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                                📝
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold animate-bounce">
+                                AI
+                            </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <h3 class="text-2xl lg:text-3xl font-display font-bold text-slate-800 dark:text-white mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                            Quiz Generator
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-lg">
+                            Upload any PDF and let AI create comprehensive quizzes with multiple question types, instant feedback, and detailed explanations.
+                        </p>
+                        
+                        <!-- Features List -->
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Multiple Choice Questions
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Auto-Generated Explanations
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Instant Score Results
+                            </li>
+                        </ul>
+                        
+                        <!-- CTA -->
+                        <div class="flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold group-hover:gap-4 transition-all">
+                            Create Quiz
+                            <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- PowerPoint Card -->
+                <a href="/powerpoint" class="group relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-pink-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div class="relative glass-card rounded-3xl p-8 lg:p-10 hover-lift hover-border h-full card-stack">
+                        <!-- Icon -->
+                        <div class="relative mb-8">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center text-4xl shadow-2xl shadow-violet-500/30 group-hover:shadow-violet-500/50 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-3">
+                                📊
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white text-xs font-bold animate-bounce">
+                                AI
+                            </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <h3 class="text-2xl lg:text-3xl font-display font-bold text-slate-800 dark:text-white mb-4 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                            PowerPoint Generator
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-lg">
+                            Transform documents into beautiful, professionally-designed presentations with customizable themes and layouts.
+                        </p>
+                        
+                        <!-- Features List -->
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Professional Templates
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Custom Slide Count
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Download as PPTX
+                            </li>
+                        </ul>
+                        
+                        <!-- CTA -->
+                        <div class="flex items-center gap-2 text-violet-600 dark:text-violet-400 font-semibold group-hover:gap-4 transition-all">
+                            Create Presentation
+                            <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Whiteboard Card -->
+                <a href="/whiteboard" class="group relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-600 to-orange-600 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div class="relative glass-card rounded-3xl p-8 lg:p-10 hover-lift hover-border h-full card-stack">
+                        <!-- Icon -->
+                        <div class="relative mb-8">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-4xl shadow-2xl shadow-pink-500/30 group-hover:shadow-pink-500/50 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                                🎬
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold animate-bounce">
+                                AI
+                            </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <h3 class="text-2xl lg:text-3xl font-display font-bold text-slate-800 dark:text-white mb-4 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+                            Whiteboard Videos
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed text-lg">
+                            Generate engaging animated whiteboard explanation videos from any topic with AI-powered script and visuals.
+                        </p>
+                        
+                        <!-- Features List -->
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Animated Explanations
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Multiple Scenes
+                            </li>
+                            <li class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-400">
+                                <svg class="w-5 h-5 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Download MP4
+                            </li>
+                        </ul>
+                        
+                        <!-- CTA -->
+                        <div class="flex items-center gap-2 text-pink-600 dark:text-pink-400 font-semibold group-hover:gap-4 transition-all">
+                            Create Video
+                            <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800"></div>
+        
+        <div class="relative max-w-7xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-20">
+                <span class="inline-block px-4 py-2 rounded-full bg-violet-500/10 text-violet-600 dark:text-violet-400 text-sm font-semibold mb-6">
+                    🚀 How It Works
+                </span>
+                <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold mb-6">
+                    <span class="text-slate-800 dark:text-white">Three Simple Steps to </span>
+                    <span class="gradient-text">Transform Content</span>
+                </h2>
+            </div>
+            
+            <!-- Steps -->
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12 relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-24 left-[20%] right-[20%] h-1">
+                    <div class="h-full bg-gradient-to-r from-primary-500 via-violet-500 to-pink-500 rounded-full opacity-20"></div>
+                    <div class="absolute inset-0 h-full bg-gradient-to-r from-primary-500 via-violet-500 to-pink-500 rounded-full shimmer"></div>
+                </div>
+                
+                <!-- Step 1 -->
+                <div class="relative text-center group">
+                    <div class="relative inline-flex mb-8">
+                        <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/50 dark:to-primary-800/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 rotate-3 group-hover:rotate-0">
+                            <span class="text-4xl">📄</span>
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-violet-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg">
+                            1
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-slate-800 dark:text-white mb-4">Upload Content</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Upload your PDF documents or enter any topic you want to transform into educational content.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="relative text-center group">
+                    <div class="relative inline-flex mb-8">
+                        <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-violet-100 to-violet-200 dark:from-violet-900/50 dark:to-violet-800/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 -rotate-3 group-hover:rotate-0">
+                            <span class="text-4xl">⚡</span>
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-pink-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg">
+                            2
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-slate-800 dark:text-white mb-4">AI Processing</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Our advanced AI analyzes your content and generates high-quality educational materials tailored to your needs.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="relative text-center group">
+                    <div class="relative inline-flex mb-8">
+                        <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-pink-100 to-pink-200 dark:from-pink-900/50 dark:to-pink-800/50 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 rotate-3 group-hover:rotate-0">
+                            <span class="text-4xl">🎉</span>
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg">
+                            3
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-slate-800 dark:text-white mb-4">Download & Use</h3>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Download your ready-to-use quizzes, presentations, or videos and start engaging your audience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto">
+            <div class="relative">
+                <!-- Background Effects -->
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-600 to-violet-600 rounded-3xl lg:rounded-[3rem]"></div>
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNGMwLTIgMi00IDItNnMtMi00LTItNi0yLTQtMi02IDItNC0yLTYiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIiBzdHJva2Utd2lkdGg9IjIiLz48L2c+PC9zdmc+')] opacity-30 rounded-3xl lg:rounded-[3rem]"></div>
+                
+                <div class="relative px-8 py-16 lg:px-16 lg:py-24 text-center">
+                    <!-- Decorative Elements -->
+                    <div class="absolute top-10 left-10 text-5xl animate-float opacity-30">✨</div>
+                    <div class="absolute bottom-10 right-10 text-5xl animate-float-delayed opacity-30">🚀</div>
+                    
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-white mb-6">
+                        Ready to Transform Your<br>Educational Content?
+                    </h2>
+                    <p class="text-xl text-white/80 max-w-2xl mx-auto mb-10">
+                        Join thousands of educators and content creators using AI to build better learning experiences.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="/quizes" class="group px-8 py-4 rounded-2xl bg-white text-primary-600 font-semibold text-lg shadow-2xl hover:shadow-white/25 transition-all duration-300 hover:scale-105 flex items-center gap-2">
+                            Start Creating Now
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                        <a href="#features" class="px-8 py-4 rounded-2xl border-2 border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-all duration-300 flex items-center gap-2">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

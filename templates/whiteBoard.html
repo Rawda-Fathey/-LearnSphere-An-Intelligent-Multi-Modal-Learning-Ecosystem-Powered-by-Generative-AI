@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+
+{% block title %}Whiteboard Video Generator{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    
+    <!-- Page Header -->
+    <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 text-sm font-medium mb-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            AI-Powered
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Whiteboard <span class="gradient-text">Video Generator</span>
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            Create engaging animated whiteboard explainer videos on any topic with AI-generated scenes.
+        </p>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-8">
+        
+        <!-- Configuration Panel -->
+        <div>
+            <div class="glass-card rounded-3xl p-6 lg:p-8">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-pink-600 dark:text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    Configuration
+                </h2>
+                
+                <form id="videoForm" class="space-y-6">
+                    <!-- Topic Input -->
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                            Video Topic
+                        </label>
+                        <div class="relative">
+                            <input type="text" id="topic" placeholder="e.g., How photosynthesis works" 
+                                class="w-full px-4 py-3 pl-11 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 placeholder-slate-400 focus:border-pink-500 focus:ring-0 transition-colors">
+                            <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                            Enter a topic or concept you want to explain in the video.
+                        </p>
+                    </div>
+                    
+                    <!-- Number of Scenes -->
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                            Number of Scenes
+                        </label>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="n_scenes" min="1" max="10" value="5" class="flex-1">
+                            <div class="w-14 h-10 flex items-center justify-center bg-pink-100 dark:bg-pink-900/30 rounded-xl font-semibold text-pink-700 dark:text-pink-300">
+                                <span id="scenesValue">5</span>
+                            </div>
+                        </div>
+                        <div class="mt-2 flex justify-between text-xs text-slate-400">
+                            <span>Shorter video</span>
+                            <span>More detailed</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Topic Suggestions -->
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">
+                            Popular Topics
+                        </label>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" class="topic-suggestion px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                                Machine Learning
+                            </button>
+                            <button type="button" class="topic-suggestion px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                                Climate Change
+                            </button>
+                            <button type="button" class="topic-suggestion px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                                Blockchain
+                            </button>
+                            <button type="button" class="topic-suggestion px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                                Quantum Computing
+                            </button>
+                            <button type="button" class="topic-suggestion px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">
+                                DNA Replication
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Generate Button -->
+                    <button type="submit" id="generateBtn" class="btn-primary w-full py-4 px-6 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-semibold rounded-2xl shadow-lg shadow-pink-500/25 hover:shadow-xl hover:shadow-pink-500/30 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <svg id="btnIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span id="btnText">Generate Video</span>
+                        <div id="btnSpinner" class="spinner hidden"></div>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Info Card -->
+            <div class="mt-6 glass-card rounded-2xl p-6">
+                <h3 class="font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    How It Works
+                </h3>
+                <ol class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                    <li class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 flex items-center justify-center font-medium shrink-0">1</span>
+                        Enter your topic or concept
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 flex items-center justify-center font-medium shrink-0">2</span>
+                        Choose the number of scenes
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 flex items-center justify-center font-medium shrink-0">3</span>
+                        AI generates animated whiteboard video
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="w-6 h-6 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 flex items-center justify-center font-medium shrink-0">4</span>
+                        Download and share your video
+                    </li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Video Panel -->
+        <div>
+            <!-- Empty State -->
+            <div id="emptyState" class="glass-card rounded-3xl p-12 text-center h-full flex flex-col items-center justify-center min-h-[500px]">
+                <div class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-pink-100 to-rose-100 dark:from-pink-900/30 dark:to-rose-900/30 flex items-center justify-center mb-6">
+                    <svg class="w-12 h-12 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-300 mb-2">No Video Yet</h3>
+                <p class="text-slate-500 dark:text-slate-400 max-w-sm mx-auto mb-6">
+                    Enter a topic and configure your preferences to generate an animated whiteboard video.
+                </p>
+                <div class="flex items-center gap-2 text-sm text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Videos typically take 1-3 minutes to generate
+                </div>
+            </div>
+            
+            <!-- Loading State -->
+            <div id="loadingState" class="hidden glass-card rounded-3xl p-12 text-center h-full flex flex-col items-center justify-center min-h-[500px]">
+                <div class="relative w-24 h-24 mx-auto mb-6">
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 animate-pulse"></div>
+                    <div class="absolute inset-2 rounded-xl bg-white dark:bg-slate-900 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-pink-500 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-300 mb-2">Creating Your Video...</h3>
+                <p class="text-slate-500 dark:text-slate-400 max-w-sm mx-auto mb-6">
+                    Our AI is generating scenes and animating your whiteboard video. This may take a few minutes.
+                </p>
+                <div id="loadingProgress" class="w-full max-w-xs">
+                    <div class="flex justify-between text-sm text-slate-500 mb-2">
+                        <span>Generating scenes...</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                        <div id="progressBar" class="h-full bg-gradient-to-r from-pink-500 to-rose-500 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Player State -->
+            <div id="videoState" class="hidden glass-card rounded-3xl overflow-hidden h-full min-h-[500px]">
+                <!-- Video Player -->
+                <div class="relative bg-black aspect-video">
+                    <video id="resultVideo" controls class="w-full h-full">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <!-- Video Info -->
+                <div class="p-6">
+                    <div class="flex items-start justify-between gap-4 mb-6">
+                        <div>
+                            <h3 id="videoTitle" class="text-xl font-bold text-slate-800 dark:text-white mb-1">Video Title</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">
+                                <span id="videoScenes">5</span> scenes • Generated with AI
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Like">
+                                <svg class="w-5 h-5 text-slate-600 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </button>
+                            <button class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" title="Share">
+                                <svg class="w-5 h-5 text-slate-600 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a id="downloadLink" href="#" download class="flex-1 py-3 px-6 bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 text-white font-semibold rounded-xl shadow-lg shadow-pink-500/25 hover:shadow-xl hover:shadow-pink-500/30 transition-all text-center flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            Download Video
+                        </a>
+                        <button id="createAnother" class="flex-1 py-3 px-6 border-2 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            Create Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // DOM Elements
+    const topicInput = document.getElementById('topic');
+    const scenesSlider = document.getElementById('n_scenes');
+    const scenesValue = document.getElementById('scenesValue');
+    const videoForm = document.getElementById('videoForm');
+    const generateBtn = document.getElementById('generateBtn');
+    const btnIcon = document.getElementById('btnIcon');
+    const btnText = document.getElementById('btnText');
+    const btnSpinner = document.getElementById('btnSpinner');
+    const emptyState = document.getElementById('emptyState');
+    const loadingState = document.getElementById('loadingState');
+    const videoState = document.getElementById('videoState');
+    const resultVideo = document.getElementById('resultVideo');
+    const downloadLink = document.getElementById('downloadLink');
+    const createAnotherBtn = document.getElementById('createAnother');
+    const progressBar = document.getElementById('progressBar');
+    const progressPercent = document.getElementById('progressPercent');
+    
+    // Topic Suggestions
+    document.querySelectorAll('.topic-suggestion').forEach(btn => {
+        btn.addEventListener('click', () => {
+            topicInput.value = btn.textContent.trim();
+            topicInput.focus();
+        });
+    });
+    
+    // Slider Value Update
+    scenesSlider.addEventListener('input', (e) => {
+        scenesValue.textContent = e.target.value;
+    });
+    
+    // Simulated Progress
+    let progressInterval;
+    function startProgress() {
+        let progress = 0;
+        progressInterval = setInterval(() => {
+            progress += Math.random() * 10;
+            if (progress > 90) progress = 90;
+            progressBar.style.width = progress + '%';
+            progressPercent.textContent = Math.round(progress) + '%';
+        }, 1000);
+    }
+    
+    function completeProgress() {
+        clearInterval(progressInterval);
+        progressBar.style.width = '100%';
+        progressPercent.textContent = '100%';
+    }
+    
+    // Form Submission
+    videoForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const topic = topicInput.value.trim();
+        if (!topic) {
+            showToast('Please enter a topic', 'warning');
+            return;
+        }
+        
+        const n_scenes = scenesSlider.value;
+        
+        // Show loading state
+        setLoading(true);
+        startProgress();
+        
+        try {
+            const response = await fetch('/api/whitboard', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ topic, n_scenes })
+            });
+            
+            const data = await response.json();
+            
+            if (!data.whitboard_url) {
+                throw new Error(data.error || "No video URL returned");
+            }
+            
+            // Fetch video as blob
+            const videoResponse = await fetch(data.whitboard_url);
+            const videoBlob = await videoResponse.blob();
+            const videoUrl = URL.createObjectURL(videoBlob);
+            
+            // Store blob for download
+            currentVideoBlob = videoBlob;
+            currentVideoFilename = `${topic.replace(/\s+/g, '_')}.mp4`;
+            
+            completeProgress();
+            
+            // Update video player
+            resultVideo.src = videoUrl;
+            resultVideo.load();
+            
+            // Update info
+            document.getElementById('videoTitle').textContent = topic;
+            document.getElementById('videoScenes').textContent = n_scenes;
+            
+            // Update download link
+            downloadLink.href = videoUrl;
+            downloadLink.download = `${topic.replace(/\s+/g, '_')}.mp4`;
+            
+            setTimeout(() => {
+                setLoading(false);
+                showVideo();
+                showToast('Video generated successfully!', 'success');
+            }, 500);
+            
+        } catch (err) {
+            clearInterval(progressInterval);
+            showToast('Error: ' + err.message, 'error');
+            setLoading(false);
+        }
+    });
+    
+    function setLoading(loading) {
+        if (loading) {
+            btnIcon.classList.add('hidden');
+            btnSpinner.classList.remove('hidden');
+            btnText.textContent = 'Generating...';
+            generateBtn.disabled = true;
+            emptyState.classList.add('hidden');
+            videoState.classList.add('hidden');
+            loadingState.classList.remove('hidden');
+            progressBar.style.width = '0%';
+            progressPercent.textContent = '0%';
+        } else {
+            btnIcon.classList.remove('hidden');
+            btnSpinner.classList.add('hidden');
+            btnText.textContent = 'Generate Video';
+            generateBtn.disabled = false;
+            loadingState.classList.add('hidden');
+        }
+    }
+    
+    function showVideo() {
+        emptyState.classList.add('hidden');
+        loadingState.classList.add('hidden');
+        videoState.classList.remove('hidden');
+    }
+    
+    // Create Another
+    createAnotherBtn.addEventListener('click', () => {
+        videoState.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        videoForm.reset();
+        scenesValue.textContent = '5';
+        resultVideo.src = '';
+        currentVideoBlob = null;
+        currentVideoFilename = 'whiteboard_video.mp4';
+    });
+    
+    // Store video blob for download
+    let currentVideoBlob = null;
+    let currentVideoFilename = 'whiteboard_video.mp4';
+    
+    // Download button click handler
+    downloadLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        if (!currentVideoBlob) {
+            showToast('No video available to download', 'warning');
+            return;
+        }
+        
+        // Create a temporary link and trigger download
+        const url = URL.createObjectURL(currentVideoBlob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = currentVideoFilename;
+        document.body.appendChild(a);
+        a.click();
+        
+        // Clean up
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 100);
+        
+        showToast('Download started!', 'success');
+    });
+</script>
+{% endblock %}
